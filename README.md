@@ -1,8 +1,11 @@
-# Mode-3 Multi-Loop Coupling Package
+﻿# Mode-3 Multi-Loop Coupling Package
 
+> **License:** © 2024–2026 Joe Louis Vanderpool / Quantum Chaos Technologies, L.L.C. — proprietary evaluation terms; core may not be modified or redistributed without written permission. See [`LICENSE`](LICENSE).  
+> **Patent:** Pending — U.S. Provisional Application **64/119,833** (not an issued patent). No patent license is granted by this package.  
+> **Claims:** Honest technical limits and allowed wording are in [`CLAIM_BOUNDARY.md`](CLAIM_BOUNDARY.md). Credit required for any use or reference.
 **PATENT PENDING**  
 U.S. Provisional Application **64/119,833**  
-Confirmation No. **6339** · Patent Center No. **79378736**
+Confirmation No. **6339** Â· Patent Center No. **79378736**
 
 **Filed:** July 27, 2026  
 **Inventor:** Joe Louis Vanderpool  
@@ -13,7 +16,7 @@ Confirmation No. **6339** · Patent Center No. **79378736**
 
 ## What This Package Is
 
-This package isolates the **multi-loop spatial coupling method** used in the Vanderpool driven-loop lattice simulator. It focuses on coordinating multiple closed driven resonators (especially on a 3×3 lattice) so they can maintain stable **mode-3** limit-cycle behavior, while evaluating performance with independent metrics.
+This package isolates the **multi-loop spatial coupling method** used in the Vanderpool driven-loop lattice simulator. It focuses on coordinating multiple closed driven resonators (especially on a 3Ã—3 lattice) so they can maintain stable **mode-3** limit-cycle behavior, while evaluating performance with independent metrics.
 
 It is a focused, packageable piece of the broader Vanderpool Solution.
 
@@ -43,26 +46,26 @@ Phase synchronization and energy synchronization are measured as **separate** ob
 
 - Arc-aligned inter-loop coupling (pair and lattice)
 - Support for velocity-only or position + velocity coupling
-- 3×3 lattice topology with production defaults
+- 3Ã—3 lattice topology with production defaults
 - Independent multi-metric evaluation:
   - Mode-3 stability
   - All-loops mode-3 stability
   - Phase / pump synchronization
   - Energy synchronization and energy balance
-- Clear separation of metrics (phase lock ≠ energy lock)
+- Clear separation of metrics (phase lock â‰  energy lock)
 
 ---
 
-## Production Configuration (3×3 Intrinsic)
+## Production Configuration (3Ã—3 Intrinsic)
 
 | Parameter                        | Typical Value      |
 |----------------------------------|--------------------|
-| Lattice size                     | 3 × 3              |
+| Lattice size                     | 3 Ã— 3              |
 | Coupling strength (k)            | 0.006              |
 | Velocity-only coupling           | True               |
 | Velocity fraction                | 0.15               |
 | Bond width                       | 0.4                |
-| Spacing                          | 2.4 × R₀           |
+| Spacing                          | 2.4 Ã— Râ‚€           |
 | Phase jitter                     | 0.02               |
 | Mode-3 stability gate (rel var)  | 0.055              |
 
@@ -70,7 +73,7 @@ Phase synchronization and energy synchronization are measured as **separate** ob
 
 ## Validation Summary (Canonical Results)
 
-Under the intrinsic 3×3 production profile (pulse off, 6000 frames):
+Under the intrinsic 3Ã—3 production profile (pulse off, 6000 frames):
 
 | Metric                        | Result (100 seeds) |
 |-------------------------------|--------------------|
@@ -87,17 +90,17 @@ Phase lock and energy lock are decoupled. Loops can achieve phase agreement with
 
 ```text
 mode3-multi-loop-coupling/
-├── README.md
-├── LICENSE
-├── MATHEMATICAL_FORCE_SPECIFICATION.md
-├── CLAIM_BOUNDARY.md
-├── VALIDATION_NOTES.md
-├── driven_loop/                  # Core simulation code
-│   ├── lattice_coupling.py
-│   ├── lattice_topology.py
-│   ├── core.py
-│   ├── defaults.py
-│   └── ...
-├── scripts/                      # Smoke tests, evidence regeneration
-├── evidence/                     # Canonical validation results
-└── provisional_prep/             # Supporting disclosure materials
+â”œâ”€â”€ README.md
+â”œâ”€â”€ LICENSE
+â”œâ”€â”€ MATHEMATICAL_FORCE_SPECIFICATION.md
+â”œâ”€â”€ CLAIM_BOUNDARY.md
+â”œâ”€â”€ VALIDATION_NOTES.md
+â”œâ”€â”€ driven_loop/                  # Core simulation code
+â”‚   â”œâ”€â”€ lattice_coupling.py
+â”‚   â”œâ”€â”€ lattice_topology.py
+â”‚   â”œâ”€â”€ core.py
+â”‚   â”œâ”€â”€ defaults.py
+â”‚   â””â”€â”€ ...
+â”œâ”€â”€ scripts/                      # Smoke tests, evidence regeneration
+â”œâ”€â”€ evidence/                     # Canonical validation results
+â””â”€â”€ provisional_prep/             # Supporting disclosure materials

@@ -1,6 +1,8 @@
-﻿These files apply to the Mode-3 multi-loop coupling simulation sources in this folder.
+﻿Mode-3 Multi-Loop Coupling — legal files in this package
 
-- LICENSE — evaluation / credit / no patent license
-- CLAIM_BOUNDARY.md — what you may and may not claim
+LICENSE              Full evaluation / credit / no patent license terms
+CLAIM_BOUNDARY.md    What you may and may not claim technically
+README.md            Top of file has the 3-line license blurb
 
-Full package root (docs, hub, evidence) is one level up from simulation/, or the Mode3_UPLOAD_HUB package root.
+Contact: Vanderpool_Joe@hotmail.com
+Joe Louis Vanderpool / Quantum Chaos Technologies, L.L.C.
