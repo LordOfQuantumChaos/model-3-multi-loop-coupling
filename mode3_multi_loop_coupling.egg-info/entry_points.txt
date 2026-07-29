@@ -1,2 +1,0 @@
-[console_scripts]
-mode3 = mode3_coupling.cli:main
