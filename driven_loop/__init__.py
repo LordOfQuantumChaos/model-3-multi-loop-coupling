@@ -1,7 +1,7 @@
 """
 Driven elastic loop dynamics — Mode-3 multi-loop coupling (standalone).
 
-Copyright (c) 2024-2026 Joe Louis Vanderpool
+Copyright (c) 2026 Joe Louis Vanderpool
 Quantum Chaos Technologies L.L.C., Goodman, Missouri, USA
 PROPRIETARY — See LICENSE at package root (and in this folder).
 

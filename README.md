@@ -6,6 +6,8 @@
 **Status:** **Patent pending** — U.S. Provisional Application **64/119,833** (not issued).  
 **Inventor:** Joe Louis Vanderpool · Quantum Chaos Technologies, L.L.C. · Goodman, Missouri, USA
 
+**Publicly viewable for evaluation; this repository is not open-source software.**
+
 ---
 
 ## Run it (60 seconds)
@@ -24,25 +26,73 @@ pip install -e ".[dev]"
 python -m mode3_coupling demo
 ```
 
-**Expected:** topology check (12 bonds on 3x3), action-reaction forces, short lattice integrate, `Demo OK`.
+**Expected:** 3x3 topology (12 bonds), action-reaction check, short lattice integrate, ends with `=== Demo OK ===`.
 
 | Command | Result |
 |---------|--------|
 | `python -m mode3_coupling demo` | Minimal outsider demo |
 | `python -m mode3_coupling info` | Package paths + patent notice |
-| `python -m mode3_coupling test` | Unit tests |
+| `python -m mode3_coupling test` | Unit tests (9) |
 | `python -m mode3_coupling smoke` | Short 3x3 integrate |
 | Double-click `START_HERE.bat` | Windows menu (stays open) |
 
-**Dependency:** `numpy` only (plus `pytest` if you run tests).
+### License near install
+
+> Evaluation and technical review are allowed under [`LICENSE`](LICENSE).  
+> **Publicly viewable for evaluation; this repository is not open-source software.**  
+> Core modification or redistribution requires written permission.  
+> **No patent license** is granted by cloning this repo. See also [`CLAIM_BOUNDARY.md`](CLAIM_BOUNDARY.md).
 
 ---
 
-## License (read this)
+## Reproducibility
 
-> **License:** (c) 2024-2026 Joe Louis Vanderpool / Quantum Chaos Technologies, L.L.C. Proprietary evaluation terms; core may not be modified or redistributed without written permission. See [`LICENSE`](LICENSE).  
-> **Patent:** Pending App. **64/119,833** only. **No patent license** is granted by cloning this repo.  
-> **Claims:** Allowed vs forbidden technical wording: [`CLAIM_BOUNDARY.md`](CLAIM_BOUNDARY.md). Credit required for any use or reference.
+| Item | Value |
+|------|--------|
+| **Python** | 3.10, 3.11, 3.12, 3.13, **3.14** (tested on 3.14) |
+| **OS tested** | Windows 10/11 (primary). Linux/macOS expected via pure Python + NumPy. |
+| **Dependencies** | `numpy>=1.24,<3` (see [`requirements.txt`](requirements.txt)) |
+| **Dev / tests** | `pytest>=7.0` via `pip install -e ".[dev]"` |
+| **Demo runtime** | Typically **~1–5 seconds** on a modern laptop (short integrate path) |
+| **Unit tests** | **9 passed** (`python -m mode3_coupling test`) |
+| **Scientific method** | Unchanged Mode-3 multi-loop coupling + independent metrics |
+
+### Example terminal output (demo)
+
+```text
+=== Mode-3 minimal demo ===
+
+1) Package: mode3-multi-loop-coupling
+   Simulation bundled: True
+   Patent: {'application_number': '64/119,833', ...}
+
+2) Topology: 3x3 bonds = 12 (expect 12)
+
+3) Pair coupling action-reaction residual max ~ 0.000e+00
+
+4) Mode-3 criteria (summary):
+   ... Gate rho: 0.055
+
+5) Production 3x3 defaults (subset):
+   loop_lattice_coupling: 0.006
+   loop_lattice_velocity_only: True
+   pump_mode: 3
+   frames: 6000
+   pump_stability_rel_var: 0.055
+
+6) Short integrate path (optional; a few seconds)...
+   Short run completed. Sample keys: ['seed', 'system', 'equilibrium_type', ...]
+
+=== Demo OK ===
+```
+
+---
+
+## License (summary)
+
+> **License:** (c) **2026** Joe Louis Vanderpool / Quantum Chaos Technologies, L.L.C. Proprietary evaluation terms; core may not be modified or redistributed without written permission. See [`LICENSE`](LICENSE).  
+> **Patent:** Pending App. **64/119,833** only. **No patent license** is granted by this package.  
+> **Claims:** Allowed vs forbidden wording: [`CLAIM_BOUNDARY.md`](CLAIM_BOUNDARY.md). Credit required for any use or reference.
 
 ---
 
@@ -52,11 +102,9 @@ python -m mode3_coupling demo
 |-------|------|
 | Simulation engine (all core files) | [`driven_loop/`](driven_loop/) |
 | Public Python API + CLI | [`mode3_coupling/`](mode3_coupling/) |
-| Docs (what / how / why / limits) | [`docs/`](docs/) start at [`docs/00_START_HERE.md`](docs/00_START_HERE.md) |
-| Browser hub | [`Mode3_Information_Center.html`](Mode3_Information_Center.html) or site root `index.html` |
+| Docs (what / how / why / limits) | [`docs/`](docs/) — start [`docs/00_START_HERE.md`](docs/00_START_HERE.md) |
+| Browser hub / social preview | [`Mode3_Information_Center.html`](Mode3_Information_Center.html) · [`assets/mode3-overview.jpg`](assets/mode3-overview.jpg) |
 | Legal | [`LICENSE`](LICENSE) · [`CLAIM_BOUNDARY.md`](CLAIM_BOUNDARY.md) |
-
-Open **`driven_loop/`** in File Explorer for the full core (`core.py`, `lattice_coupling.py`, `lattice_topology.py`, `stress.py`, …).
 
 ---
 
@@ -74,8 +122,6 @@ from mode3_coupling import (
 print(package_info()["name"])
 print(lattice_3x3_default_overrides()["loop_lattice_coupling"])  # 0.006
 ```
-
-Lower-level runner:
 
 ```python
 from driven_loop.stress import run_seed
@@ -108,7 +154,7 @@ Details: [`CLAIM_BOUNDARY.md`](CLAIM_BOUNDARY.md) · [`docs/02_WHAT_IT_DOES_NOT.
 | Patent Center | 79378736 |
 | Filed | July 27, 2026 |
 
-Full card: keep confirmation against USPTO Patent Center.
+Confirm numbers against USPTO Patent Center.
 
 ---
 
@@ -122,4 +168,4 @@ Full card: keep confirmation against USPTO Patent Center.
 
 ---
 
-*Standalone package. No parent monorepo required.*
+*Standalone package. No parent monorepo required. Not open-source software.*
