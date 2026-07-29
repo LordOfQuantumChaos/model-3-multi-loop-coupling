@@ -1,106 +1,120 @@
-﻿# Mode-3 Multi-Loop Coupling Package
+# Mode-3 Multi-Loop Coupling Package
 
 > **License:** © 2024–2026 Joe Louis Vanderpool / Quantum Chaos Technologies, L.L.C. — proprietary evaluation terms; core may not be modified or redistributed without written permission. See [`LICENSE`](LICENSE).  
 > **Patent:** Pending — U.S. Provisional Application **64/119,833** (not an issued patent). No patent license is granted by this package.  
 > **Claims:** Honest technical limits and allowed wording are in [`CLAIM_BOUNDARY.md`](CLAIM_BOUNDARY.md). Credit required for any use or reference.
-**PATENT PENDING**  
-U.S. Provisional Application **64/119,833**  
-Confirmation No. **6339** Â· Patent Center No. **79378736**
 
-**Filed:** July 27, 2026  
-**Inventor:** Joe Louis Vanderpool  
-**Company:** Quantum Chaos Technologies, L.L.C.  
-**Location:** Goodman, Missouri, USA
+**PATENT PENDING** — U.S. Provisional Application **64/119,833**  
+Confirmation No. **6339** · Patent Center No. **79378736**
+
+**Inventor:** Joe Louis Vanderpool · **Company:** Quantum Chaos Technologies, L.L.C. · Goodman, Missouri, USA
 
 ---
 
-## What This Package Is
+## Standalone package
 
-This package isolates the **multi-loop spatial coupling method** used in the Vanderpool driven-loop lattice simulator. It focuses on coordinating multiple closed driven resonators (especially on a 3Ã—3 lattice) so they can maintain stable **mode-3** limit-cycle behavior, while evaluating performance with independent metrics.
+This repository is **fully standalone**. You do **not** need the larger monorepo.
 
-It is a focused, packageable piece of the broader Vanderpool Solution.
+| Piece | Location |
+|-------|----------|
+| **Simulation core** | [`driven_loop/`](driven_loop/) (File Explorer: all engine files live here) |
+| **Public Python API** | [`mode3_coupling/`](mode3_coupling/) |
+| **Legal** | [`LICENSE`](LICENSE) · [`CLAIM_BOUNDARY.md`](CLAIM_BOUNDARY.md) · also inside `driven_loop/` |
+| **Docs** | `00_START_HERE.md` … `09_API_REFERENCE.md` |
+| **Hub page** | [`Mode3_Information_Center.html`](Mode3_Information_Center.html) |
 
----
-
-## What This Package Is Not
-
-- Not an issued patent (this is a provisional application only)
-- Not a claim of guaranteed stability under all conditions or parameters
-- Not a claim that inter-loop coupling by itself creates mode-3 behavior
-- Not AetherMind, radiation shielding modules, or the full product catalog
-- Not a finished commercial product
+**Only external dependency:** `numpy` (optional `pytest` for tests).
 
 ---
 
-## Core Idea
+## Quick start
 
-Multiple closed material loops are arranged on a spatial lattice and linked by weak, arc-aligned coupling forces (preferentially velocity coupling).  
+```bash
+git clone https://github.com/LordOfQuantumChaos/model-3-multi-loop-coupling.git
+cd model-3-multi-loop-coupling
+python -m venv .venv
 
-Under documented intrinsic production settings, the system produces reliable mode-3 dominant behavior across the lattice.  
+# Windows
+.\.venv\Scripts\Activate.ps1
 
-Phase synchronization and energy synchronization are measured as **separate** observables and are not treated as the same thing.
+pip install -e ".[dev]"
+python -m mode3_coupling demo
+python -m mode3_coupling test
+```
 
----
-
-## Key Technical Features
-
-- Arc-aligned inter-loop coupling (pair and lattice)
-- Support for velocity-only or position + velocity coupling
-- 3Ã—3 lattice topology with production defaults
-- Independent multi-metric evaluation:
-  - Mode-3 stability
-  - All-loops mode-3 stability
-  - Phase / pump synchronization
-  - Energy synchronization and energy balance
-- Clear separation of metrics (phase lock â‰  energy lock)
+Windows: double-click **`START_HERE.bat`**.
 
 ---
 
-## Production Configuration (3Ã—3 Intrinsic)
+## Public API
 
-| Parameter                        | Typical Value      |
-|----------------------------------|--------------------|
-| Lattice size                     | 3 Ã— 3              |
-| Coupling strength (k)            | 0.006              |
-| Velocity-only coupling           | True               |
-| Velocity fraction                | 0.15               |
-| Bond width                       | 0.4                |
-| Spacing                          | 2.4 Ã— Râ‚€           |
-| Phase jitter                     | 0.02               |
-| Mode-3 stability gate (rel var)  | 0.055              |
+```python
+from mode3_coupling import (
+    package_info,
+    lattice_3x3_default_overrides,
+    loop_lattice_neighbor_pairs,
+    inter_loop_pair_coupling_forces,
+    MODE3_PUMP_STABILITY_REL_VAR,
+)
 
----
+print(package_info()["patent_pending"])
+print(lattice_3x3_default_overrides()["loop_lattice_coupling"])  # 0.006
+```
 
-## Validation Summary (Canonical Results)
+Lower-level:
 
-Under the intrinsic 3Ã—3 production profile (pulse off, 6000 frames):
+```python
+from driven_loop.stress import run_seed
+from driven_loop.stability_gates import MODE3_PUMP_STABILITY_REL_VAR
 
-| Metric                        | Result (100 seeds) |
-|-------------------------------|--------------------|
-| mode3_stable                  | 100 / 100 (100%)   |
-| all_loops_mode3_stable        | 95 / 100 (95%)     |
-| pump_locked (phase sync)      | 19 / 100 (19%)     |
-
-**Important observation:**  
-Phase lock and energy lock are decoupled. Loops can achieve phase agreement without matching energy levels.
+stats = run_seed(0, lattice=True, frames=200, rows=3, cols=3, coupling=0.006)
+```
 
 ---
 
-## Repository Structure (High Level)
+## What this is / is not
+
+**Is:** Multi-loop lattice coupling + independent mode-3 / phase / energy metrics (simulation).  
+**Is not:** Hardware warranty · universal mode-3 · issued patent · AetherMind full product.
+
+See [`CLAIM_BOUNDARY.md`](CLAIM_BOUNDARY.md) and [`02_WHAT_IT_DOES_NOT.md`](02_WHAT_IT_DOES_NOT.md).
+
+---
+
+## Folder map
 
 ```text
-mode3-multi-loop-coupling/
-â”œâ”€â”€ README.md
-â”œâ”€â”€ LICENSE
-â”œâ”€â”€ MATHEMATICAL_FORCE_SPECIFICATION.md
-â”œâ”€â”€ CLAIM_BOUNDARY.md
-â”œâ”€â”€ VALIDATION_NOTES.md
-â”œâ”€â”€ driven_loop/                  # Core simulation code
-â”‚   â”œâ”€â”€ lattice_coupling.py
-â”‚   â”œâ”€â”€ lattice_topology.py
-â”‚   â”œâ”€â”€ core.py
-â”‚   â”œâ”€â”€ defaults.py
-â”‚   â””â”€â”€ ...
-â”œâ”€â”€ scripts/                      # Smoke tests, evidence regeneration
-â”œâ”€â”€ evidence/                     # Canonical validation results
-â””â”€â”€ provisional_prep/             # Supporting disclosure materials
+model-3-multi-loop-coupling/
+  driven_loop/           ← complete simulation package (open in File Explorer)
+    core.py
+    lattice_coupling.py
+    lattice_topology.py
+    defaults.py
+    stress.py
+    stability_gates.py
+    validation_metrics.py
+    sim_config.py
+    multi_loop.py
+    gravity_well.py
+    loop_material.py
+    intrinsic_profile.py
+    experiments/         ← OFF flags for intrinsic profile
+    LICENSE
+    CLAIM_BOUNDARY.md
+  mode3_coupling/        ← clean public API + CLI
+  tests/
+  LICENSE
+  CLAIM_BOUNDARY.md
+  README.md
+  START_HERE.bat
+  run_demo.py
+  pyproject.toml
+  00_…09_*.md            ← documentation
+  Mode3_Information_Center.html
+```
+
+---
+
+## License & patent
+
+See [`LICENSE`](LICENSE). Evaluation use allowed; core redistribution/modification requires written permission. **No patent license** is granted by cloning this repo.

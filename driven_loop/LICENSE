@@ -1,0 +1,106 @@
+Mode-3 Multi-Loop Coupling Package
+Copyright (c) 2024-2026 Joe Louis Vanderpool
+Quantum Chaos Technologies, L.L.C.
+
+PATENT PENDING — U.S. Provisional Application 64/119,833
+(Utility provisional under 35 U.S.C. § 111(b). A provisional is not an issued patent.)
+
+All rights reserved except as expressly granted below.
+
+================================================================================
+LICENSE TERMS
+================================================================================
+
+1. CORE WORK
+
+The core simulation method, multi-loop lattice coupling approach, architecture,
+metric definitions, documentation, evidence artifacts, and associated
+patent-pending subject matter remain the exclusive property of:
+
+    Joe Louis Vanderpool
+    Quantum Chaos Technologies, L.L.C.
+
+The core simulation code and method may not be changed, replaced, forked as a
+substitute core, or redistributed as a modified core without prior written
+permission from the copyright holder.
+
+2. CREDIT
+
+Any use, reference, publication, or distribution of this work (or substantial
+portions of it) must give clear credit to:
+
+    Joe Louis Vanderpool / Quantum Chaos Technologies, L.L.C.
+
+and must reference Provisional Patent Application 64/119,833 where appropriate
+(for example: technical papers, public demos, evaluation reports, or product
+descriptions that rely on this method).
+
+You may not remove or alter copyright, patent-pending, or claim-boundary notices.
+
+3. MODIFICATIONS AND EXTENSIONS
+
+You may create your own separate modifications, wrappers, interfaces, experiments,
+adapters, or extensions built on top of this work for evaluation or research.
+
+You may take credit for your own separate modifications and extensions.
+
+However:
+
+  (a) those modifications must remain clearly separate from the core simulation;
+  (b) you must not present a modified core as the original Mode-3 package or as
+      work authored solely by you;
+  (c) redistributing a combined work still requires permission for the core under
+      Section 1, unless a separate written license says otherwise.
+
+4. EVALUATION USE
+
+Unless a separate written license agreement is executed, you are granted a
+limited, non-exclusive, non-transferable, revocable right to:
+
+  (a) inspect this package for technical evaluation, research, testing, and
+      due-diligence review;
+  (b) run included demos, unit tests, and smoke scripts on systems you control;
+  (c) reproduce stated multi-seed observations under documented configs.
+
+No commercial production license, sublicense, or resale right is granted by this
+file alone.
+
+5. NO PATENT LICENSE
+
+Nothing in this license grants any license, covenant not to sue, or other rights
+under pending, provisional, or future patents related to this work, including
+U.S. Provisional Application 64/119,833 or any nonprovisional claiming priority
+thereto.
+
+Patent rights, if any, are handled only by separate written agreement.
+
+6. NO WARRANTY
+
+THIS SOFTWARE AND DOCUMENTATION ARE PROVIDED "AS IS," WITHOUT WARRANTY OF ANY
+KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO WARRANTIES OF
+MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, AND NON-INFRINGEMENT.
+
+SIMULATION RESULTS ARE CONFIGURATION-SPECIFIC. THEY ARE NOT A WARRANTY OF
+PHYSICAL HARDWARE PERFORMANCE OR OF MODE-3 (OR ANY OTHER) BEHAVIOR AT ALL
+RATES, SIZES, SEEDS, OR ENVIRONMENTS.
+
+IN NO EVENT SHALL THE COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES, OR
+OTHER LIABILITY ARISING FROM USE OF THIS PACKAGE.
+
+7. CLAIM BOUNDARY
+
+Technical statements about what this package does and does not support are set
+out in CLAIM_BOUNDARY.md. That file is part of the package documentation and
+must not be stripped from shared copies.
+
+8. CONTACT
+
+For commercial licensing, collaboration, or written permission:
+
+    Joe Vanderpool — Owner / Founder
+    Quantum Chaos Technologies, L.L.C.
+    Email: Vanderpool_Joe@hotmail.com
+
+================================================================================
+END OF LICENSE
+================================================================================

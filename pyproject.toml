@@ -1,0 +1,29 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "mode3-multi-loop-coupling"
+version = "1.0.1"
+description = "Mode-3 multi-loop lattice coupling standalone package (patent pending 64/119,833)"
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "Proprietary - see LICENSE" }
+authors = [
+  { name = "Joe Louis Vanderpool" },
+  { name = "Quantum Chaos Technologies L.L.C." },
+]
+dependencies = ["numpy>=1.24"]
+
+[project.optional-dependencies]
+dev = ["pytest>=7.0"]
+
+[project.scripts]
+mode3 = "mode3_coupling.cli:main"
+
+[tool.setuptools.packages.find]
+include = ["mode3_coupling*", "driven_loop*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["."]
