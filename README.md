@@ -20,7 +20,7 @@ This repository is **fully standalone**. You do **not** need the larger monorepo
 | **Simulation core** | [`driven_loop/`](driven_loop/) (File Explorer: all engine files live here) |
 | **Public Python API** | [`mode3_coupling/`](mode3_coupling/) |
 | **Legal** | [`LICENSE`](LICENSE) · [`CLAIM_BOUNDARY.md`](CLAIM_BOUNDARY.md) · also inside `driven_loop/` |
-| **Docs** | `00_START_HERE.md` … `09_API_REFERENCE.md` |
+| **Docs** | [`docs/`](docs/) (00–09 reading order) |
 | **Hub page** | [`Mode3_Information_Center.html`](Mode3_Information_Center.html) |
 
 **Only external dependency:** `numpy` (optional `pytest` for tests).
