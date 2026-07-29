@@ -1,10 +1,15 @@
 """
-Driven elastic loop dynamics — simulation, phase diagrams, and discovery tools.
+Driven elastic loop dynamics — Mode-3 multi-loop coupling (standalone).
 
 Copyright (c) 2024-2026 Joe Louis Vanderpool
 Quantum Chaos Technologies L.L.C., Goodman, Missouri, USA
-PROPRIETARY — See LICENSE at package root.
+PROPRIETARY — See LICENSE at package root (and in this folder).
+
+This public package exports only the Mode-3 lattice coupling surface.
+AetherMind / Helix product modules are intentionally not imported here.
 """
+
+from __future__ import annotations
 
 from driven_loop.core import (
     SimConfig,
@@ -31,8 +36,11 @@ from driven_loop.experiments import (
     FLUID_PLL_MEMORY_STACK,
     GR_DISABLED,
     GYRO_PLL_DISABLED,
+    PAC_DISABLED,
     PLASMA_DISABLED,
     PULSE_DISABLED,
+    QSLT_RESONANCE_DISABLED,
+    KNOWN_FREQUENCIES_DISABLED,
     apply_adaptive_experiment,
     apply_gr_experiment,
     apply_plasma_experiment,
@@ -43,45 +51,23 @@ from driven_loop.experiments import (
     lattice_pulse_hopping,
 )
 from driven_loop.stress import compare_stress, mode3_stable, run_seed
-
-# AetherMind permanent public surface (v2.1)
-from driven_loop.aethermind import (  # noqa: E402
-    AETHERMIND_PERMANENT_UPGRADES,
-    AETHERMIND_VERSION,
-    create_aethermind as create_aethermind_session,
+from driven_loop.stability_gates import (
+    DEFAULT_PUMP_STABILITY_REL_VAR,
+    MODE3_PUMP_STABILITY_REL_VAR,
+    STRICT_PUMP_STABILITY_REL_VAR,
+    describe_stability_gates,
 )
-from driven_loop.aethermind_complete import (  # noqa: E402
-    AETHERMIND_COMPLETE_VERSION,
-    AETHERMIND_PERMANENT,
-    AETHERMIND_PERMANENT_FEATURES,
-    EvidenceSignal,
-    build_evidence_from_components,
-    create_aethermind,
-    create_gyro as create_aether_gyro,
+from driven_loop.lattice_topology import (
+    loop_lattice_centers,
+    loop_lattice_neighbor_pairs,
 )
-from driven_loop.scientific_knowledge import (  # noqa: E402
-    get_scientific_fact,
-    query_scientific_knowledge,
-)
-from driven_loop.panel_registry import (  # noqa: E402
-    build_panel_registry,
-    save_panel_registry,
-)
-from driven_loop.learning_support import (  # noqa: E402
-    LearningSupportModule,
-    create_learning_support,
-)
-from driven_loop.loop_specialists import get_loop7, get_loop9  # noqa: E402
-from driven_loop.aether_lattice import create_lattice  # noqa: E402
-from driven_loop.reliability_core import (  # noqa: E402
-    AetherBrain,
-    AetherGyroCoreFacade,
-    ReliabilityCore,
-    create_aether_brain,
-    create_reliability_core,
+from driven_loop.lattice_coupling import (
+    inter_loop_pair_coupling_forces,
+    loop_lattice_coupling_forces,
 )
 
-__version__ = "1.8.0"
+__version__ = "1.0.1"
+
 __all__ = [
     "SimConfig",
     "CONFIG_SECTIONS",
@@ -91,14 +77,18 @@ __all__ = [
     "INTRINSIC_V5_WINNER",
     "INTRINSIC_V6_DEFAULT",
     "LATTICE_FRAMES",
+    "LEGACY_HUNT_FRAMES",
+    "PRODUCTION_FRAMES",
     "ADAPTIVE_DISABLED",
     "FLUID_DISABLED",
     "FLUID_PLL_MEMORY_STACK",
     "GR_DISABLED",
     "GYRO_PLL_DISABLED",
+    "PAC_DISABLED",
     "PLASMA_DISABLED",
     "PULSE_DISABLED",
-    "PRODUCTION_FRAMES",
+    "QSLT_RESONANCE_DISABLED",
+    "KNOWN_FREQUENCIES_DISABLED",
     "apply_adaptive_experiment",
     "apply_gr_experiment",
     "apply_plasma_experiment",
@@ -107,7 +97,6 @@ __all__ = [
     "fluid_experiment",
     "gyro_pll_experiment",
     "lattice_pulse_hopping",
-    "LEGACY_HUNT_FRAMES",
     "classify_regime",
     "compare_stress",
     "is_trivial_collapse",
@@ -116,31 +105,13 @@ __all__ = [
     "run_seed",
     "run_simulation",
     "stats_to_row",
-    # AetherMind v2.2 permanent
-    "AETHERMIND_VERSION",
-    "AETHERMIND_COMPLETE_VERSION",
-    "AETHERMIND_PERMANENT",
-    "AETHERMIND_PERMANENT_UPGRADES",
-    "AETHERMIND_PERMANENT_FEATURES",
-    "EvidenceSignal",
-    "build_evidence_from_components",
-    "create_aethermind",
-    "create_aethermind_session",
-    "create_aether_gyro",
-    "get_scientific_fact",
-    "query_scientific_knowledge",
-    "build_panel_registry",
-    "save_panel_registry",
-    "LearningSupportModule",
-    "create_learning_support",
-    "get_loop7",
-    "get_loop9",
-    "create_lattice",
-    # Drop-in AetherGyro / reliability facade
-    "AetherBrain",
-    "AetherGyroCoreFacade",
-    "ReliabilityCore",
-    "create_aether_brain",
-    "create_reliability_core",
+    "MODE3_PUMP_STABILITY_REL_VAR",
+    "DEFAULT_PUMP_STABILITY_REL_VAR",
+    "STRICT_PUMP_STABILITY_REL_VAR",
+    "describe_stability_gates",
+    "loop_lattice_centers",
+    "loop_lattice_neighbor_pairs",
+    "inter_loop_pair_coupling_forces",
+    "loop_lattice_coupling_forces",
     "__version__",
 ]

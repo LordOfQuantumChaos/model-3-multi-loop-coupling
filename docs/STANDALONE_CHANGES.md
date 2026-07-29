@@ -81,3 +81,12 @@ pip install -e ".[dev]"
 python -m mode3_coupling demo   # OK
 python -m mode3_coupling test   # 9 passed
 ```
+
+## 2026-07-29 follow-up (visitor polish)
+
+- README rewritten: what this is + run in 60s at the top
+- Removed `README_LICENSE.txt` (redundant with LICENSE + README blurb)
+- Slimmed `driven_loop/__init__.py` to Mode-3-only exports (no AetherMind imports)
+- Added `index.html` redirect for GitHub Pages root URL
+- Added `.github/workflows/pages.yml` for automatic Pages deploy
+- Fresh venv: `pip install -e .[dev]` + demo + tests **pass**
